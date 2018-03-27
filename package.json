@@ -1,0 +1,21 @@
+{
+  "name": "ee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bluebird": "^3.5.1",
+    "cheerio": "^1.0.0-rc.2",
+    "knex": "^0.14.4",
+    "mariasql": "^0.2.6",
+    "moment": "^2.21.0",
+    "winston": "^2.4.1"
+  }
+}
