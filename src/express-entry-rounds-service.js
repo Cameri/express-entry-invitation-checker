@@ -13,7 +13,7 @@ function getCurrentDraw () {
 }
 
 function parsePage (response) {
-  logger.debug('parsePage() response:', response.length, ' bytes')
+  logger.debug('parsePage() response:', response.data.length, ' bytes')
   const $ = cheerio.load(response.data)
   return {
     'draw_date': $('strong:contains(time of round)').parent().contents().text(),
@@ -26,7 +26,7 @@ function parsePage (response) {
 }
 
 function extractData (data) {
-  logger.debug('extractData() data:', data)
+  logger.debug('extractData() data: %s', JSON.stringify(data))
   return {
     draw_date: moment.utc(data.draw_date.split(': ').pop(), 'MMMM-DD-YYYY-HH:mm:ss'),
     lowest_crs: parseInt(data.lowest_crs.split(': ').pop().replace(',', '').trim(), 10),
