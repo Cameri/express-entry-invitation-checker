@@ -1,14 +1,14 @@
 
 let instance
 const knex = require('knex')
-
+const {database} = require('../../config/config')
 function get () {
   if (instance) {
     return instance
   }
   instance = knex({
     client: 'mariasql',
-    connection: Object.assign({}, require('../../config/config').database)
+    connection: {...database}
   })
   return instance
 }
