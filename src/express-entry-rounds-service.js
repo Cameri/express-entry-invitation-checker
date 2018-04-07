@@ -13,7 +13,7 @@ function getCurrentDraw () {
 }
 
 function parsePage (response) {
-  logger.debug('parsePage()')
+  logger.debug('parsePage() response:', response.data.length, ' bytes')
   const $ = cheerio.load(response.data)
   return {
     'draw_date': $('strong:contains(time of round)').parent().contents().text(),
