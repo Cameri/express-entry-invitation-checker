@@ -1,4 +1,3 @@
-
 exports.up = function (knex, Promise) {
   return knex.schema.createTableIfNotExists('express_entry_draws', (table) => {
     table.increments('id').primary()
