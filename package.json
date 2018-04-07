@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "db:migrate": "npx knex migrate:latest --knexfile ./db/knexfile.js",
     "start": "node src/index.js"
   },
   "author": "",
