@@ -10,13 +10,13 @@ const {sendMessage} = require('./telegram-service')
 const {getGist} = require('./gist-service')
 
 function prepareMessageText (data) {
-  logger.debug('prepareMessage() data:', data)
+  logger.debug('prepareMessage() data: %s', JSON.stringify(data))
   const context = {
     ...data,
     date: data.draw_date.format('MMMM DD YYYY'),
     emoji: emoji
   }
-  logger.debug('prepareMessage() context:', data)
+  logger.debug('prepareMessage() context: %s', JSON.stringify(data))
 
   return getGist()
     .then(response => response.data)
@@ -35,7 +35,7 @@ function prepareMessageText (data) {
 }
 
 function sendUpdates (data) {
-  logger.debug('sendUpdates() data:', data)
+  logger.debug('sendUpdates() data: %s', JSON.stringify(data))
 
   return Promise.all([
     prepareMessageText(data),
@@ -75,7 +75,7 @@ function run () {
   ])
     .then(([previous, current]) => {
       // Compare recorded draw's modified date and current draw's modified date
-      logger.debug('run() previous:', previous, 'current:', current)
+      logger.debug('run() previous: %s. current: %s', JSON.stringify(previous), JSON.stringify(current))
       if (previous.draw_date.isBefore(current.draw_date)) {
         // Save new draw
         return DrawsDao.save(db, current)
