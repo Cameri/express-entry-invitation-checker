@@ -1,3 +1,4 @@
+'use strict'
 const axios = require('axios')
 const config = require('../config/config')
 const {logger} = require('./util')
