@@ -1,6 +1,5 @@
 'use strict'
 const Promise = require('bluebird')
-const readFileAsync = Promise.promisify(require('fs').readFile)
 const Handlebars = require('handlebars')
 const db = require('./db/knex')
 const {logger, emoji} = require('./util')
@@ -10,26 +9,15 @@ const {sendMessage} = require('./telegram-service')
 const {getGist} = require('./gist-service')
 
 function prepareMessageText (data) {
-  logger.debug('prepareMessage() data: %s', JSON.stringify(data))
+  logger.debug('prepareMessageText() data: %s', JSON.stringify(data))
   const context = {
     ...data,
     date: data.draw_date.format('MMMM DD YYYY'),
     emoji: emoji
   }
-  logger.debug('prepareMessage() context: %s', JSON.stringify(data))
+  logger.debug('prepareMessageText() context: %s', JSON.stringify(data))
 
   return getGist()
-    .then(response => response.data)
-    .catch(err => {
-      if (err.response) {
-        logger.error('prepareMessageText() Axios response error: %s. err.config: %s, err.stack: %s', err, JSON.stringify(err.config), err.stack)
-      } else if (err.request) {
-        logger.error('prepareMessageText() Axios request error: %s. err.config: %s, err.stack: %s', err, JSON.stringify(err.config), err.stack)
-      } else {
-        logger.error('prepareMessageText() unexpected error: %s. err.stack: %s', err, err.stack)
-      }
-      return readFileAsync('./templates/telegram-message-text.html', 'utf8')
-    })
     .then(Handlebars.compile)
     .then(template => template(context))
 }
