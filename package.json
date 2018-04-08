@@ -6,6 +6,7 @@
   "scripts": {
     "test": "standard",
     "db:migrate": "npx knex migrate:latest --knexfile ./db/knexfile.js",
+    "gist:update": "gist -u 2760dcd0c32fa17248c2049b17a0b300 ./templates/telegram-message-text.html",
     "start": "node src/index.js"
   },
   "author": "",
