@@ -2,6 +2,7 @@
 const axios = require('axios')
 const config = require('../config/config')
 const {logger} = require('./util')
+const Promise = require('bluebird')
 const readFileAsync = Promise.promisify(require('fs').readFile)
 
 function getGist () {
