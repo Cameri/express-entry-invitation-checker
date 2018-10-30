@@ -10,7 +10,8 @@ function sendMessage (chatId, text) {
     params: {
       text,
       chat_id: chatId,
-      parse_mode: 'HTML'
+      parse_mode: 'HTML',
+      disable_web_page_preview: true
     }
   })
 }
