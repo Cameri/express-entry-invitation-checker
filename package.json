@@ -2,7 +2,7 @@
   "name": "ee",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "standard",
     "db:migrate": "npx knex migrate:latest --knexfile ./db/knexfile.js",
