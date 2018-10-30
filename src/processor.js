@@ -71,7 +71,7 @@ function run () {
   ])
     .then(([previous, current]) => {
       // Compare recorded draw's modified date and current draw's modified date
-      logger.debug('run() previous: %s. current: %s', JSON.stringify(previous), JSON.stringify(current))
+      logger.debug('run() previous date: %s. current date: %s', previous.draw_date.format(), current.draw_date.format())
       if (previous.draw_date.isBefore(current.draw_date)) {
         // Save new draw
         return DrawsDao.save(db, current)

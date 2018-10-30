@@ -7,7 +7,7 @@ function get () {
     return instance
   }
   instance = knex({
-    client: 'mariasql',
+    client: 'mysql',
     connection: {...database}
   })
   return instance

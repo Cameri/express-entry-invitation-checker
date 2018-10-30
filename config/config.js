@@ -7,6 +7,7 @@ module.exports = {
     'host': process.env.DB_HOST || '127.0.0.1',
     'user': process.env.DB_USER || 'missing',
     'password': process.env.DB_PASSWORD || 'missing',
-    'db': process.env.DB_NAME || 'missing'
+    'database': process.env.DB_NAME || 'missing',
+    'timezone': process.env.DB_TZ || 'UTC'
   }
 }
