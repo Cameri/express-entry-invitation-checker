@@ -48,11 +48,19 @@ function sendUpdates (data) {
     })
 }
 
+/**
+ * getLatestRecordedDraw
+ * @returns {Promise}
+ */
 function getLatestRecordedDraw () {
   logger.debug('getLatestRecordedDraw()')
   return DrawsDao.getLatestRecordedDraw(db)
 }
 
+/**
+ * Runs the processor
+ * @returns {Promise}
+ */
 function run () {
   logger.debug('run()')
 
