@@ -16,7 +16,7 @@
     "bluebird": "^3.5.1",
     "cheerio": "^1.0.0-rc.2",
     "handlebars": "^4.0.11",
-    "knex": "^0.14.4",
+    "knex": "^0.19.5",
     "moment": "^2.21.0",
     "mysql": "^2.16.0",
     "winston": "^2.4.1"
