@@ -6,6 +6,9 @@ jobs:
     executor:
       name: node/default
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "8e:5a:db:94:eb:09:5e:30:72:1e:ee:eb:5f:51:11:f8"
       - checkout
       - node/with-cache:
           steps:
